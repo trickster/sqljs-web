@@ -20,18 +20,18 @@
 </head>
 
 <body>
-    <div class="min-h-screen bg-gray-100 py-6 flex flex-row justify-center sm:py-12">
-        <div>
-            <p class="text-base text-gray-700 relative py-3 sm:max-w-xl font-bold sm:text-lg text-center">your query
-                here:</p>
-            <div class="flex flex-row justify-center">
-                <code class="w-full">
-                <textarea class="input border text-gray-800 rounded w-full"></textarea>
+    <div class="bg-gray-200">
+        <div class="container mx-auto px-4 text-center text-base">
+            <div>
+                <p class="text-gray-700 py-3 font-bold">your query here:</p>
+                <div class="text-center">
+                    <code>
+                <textarea class="input border text-gray-800 rounded"></textarea>
               </code>
+                    <p id="result" class="text-gray-700 py-3 overflow-x-scroll overflow-y-scroll">Loading...</p>
+                </div>
+                <br />
             </div>
-            <br />
-            <p id="result" class="text-base text-gray-700 relative py-3 sm:max-w-xl sm:text-lg text-center">Loading...
-            </p>
         </div>
     </div>
     <script async src="./dist/bundle.js"></script>
