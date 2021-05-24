@@ -30,7 +30,9 @@ async function load() {
         wasmUrl.toString(),
     );
 
-    const result = await worker.db.query(`select * from names`);
+    // const result = await worker.db.query(`select * from names`);
+    const result = await worker.db.query(`select long_name, get_flag("2-alpha_code") as flag from wdi_country
+    where region is not null and currency_unit = 'Euro';`)
 
     document.body.textContent = JSON.stringify(result);
 }
