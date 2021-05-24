@@ -24,12 +24,17 @@
         <div>
             <p class="text-base text-gray-700 relative py-3 sm:max-w-xl font-bold sm:text-lg text-center">your query
                 here:</p>
-            <input type="text" id="fname" name="fname" class="rounded text-blue-500" />
-            <p id="result" class="text-base text-gray-700 relative py-3 sm:max-w-xl sm:text-lg text-center">Hello World
+            <div class="flex flex-row justify-center">
+                <code class="w-full">
+                <textarea class="input border text-gray-800 rounded w-full"></textarea>
+              </code>
+            </div>
+            <br />
+            <p id="result" class="text-base text-gray-700 relative py-3 sm:max-w-xl sm:text-lg text-center">Loading...
             </p>
         </div>
     </div>
-    <script src="./dist/bundle.js"></script>
+    <script async src="./dist/bundle.js"></script>
 </body>
 
 </html>

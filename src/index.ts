@@ -8,7 +8,7 @@ const wasmUrl = new URL("sql.js-httpvfs/dist/sql-wasm.wasm", import.meta.url);
 
 const dbDir = "https://trickster.github.io/world-sqlite3/split-db";
 
-async function load() {
+async function load(query: string) {
     const worker = await createDbWorker(
         [
             {
@@ -31,7 +31,7 @@ async function load() {
     );
 
     // const result = await worker.db.query(`select * from names`);
-    const result = await worker.db.query(`select country_code, long_name from wdi_country limit 3;`)
+    const result = await worker.db.query(query);
 
     let resultDom = document.querySelector("#result");
     if (resultDom) {
@@ -39,4 +39,5 @@ async function load() {
     }
 }
 
-load();
+// module.exports.load = load();
+load(`select country_code, long_name from wdi_country limit 3;`);
