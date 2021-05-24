@@ -33,7 +33,10 @@ async function load() {
     // const result = await worker.db.query(`select * from names`);
     const result = await worker.db.query(`select country_code, long_name from wdi_country limit 3;`)
 
-    document.body.textContent = JSON.stringify(result);
+    let resultDom = document.querySelector("#result");
+    if (resultDom) {
+        resultDom.textContent = JSON.stringify(result);
+    }
 }
 
 load();
