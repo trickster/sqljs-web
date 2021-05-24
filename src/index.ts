@@ -31,8 +31,7 @@ async function load() {
     );
 
     // const result = await worker.db.query(`select * from names`);
-    const result = await worker.db.query(`select long_name, get_flag("2-alpha_code") as flag from wdi_country
-    where region is not null and currency_unit = 'Euro';`)
+    const result = await worker.db.query(`select country_code, long_name from wdi_country limit 3;`)
 
     document.body.textContent = JSON.stringify(result);
 }
