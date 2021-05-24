@@ -11,11 +11,11 @@ const dbDir = "https://trickster.github.io/world-sqlite3/split-db";
 async function load() {
     const worker = await createDbWorker(
         [
-            // {
-            //     from: "jsonconfig",
-            //     virtualFilename: "wdi.sqlite3",
-            //     configUrl: dbDir + "/config.json",
-            // },
+            {
+                from: "jsonconfig",
+                virtualFilename: "wdi.sqlite3",
+                configUrl: dbDir + "/config.json",
+            },
             {
                 from: "inline",
                 virtualFilename: "dbstat.sqlite3",
