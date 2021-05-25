@@ -1,5 +1,5 @@
 module.exports = {
-    entry: "./src/index.ts",
+    entry: "./src/index.js",
     module: {
         rules: [
             {
@@ -14,6 +14,8 @@ module.exports = {
     },
     output: {
         filename: "bundle.js",
+        // libraryTarget: 'var',
+        // library: 'SQLiteQueryLib'
     },
     devServer: {
         publicPath: "/dist",

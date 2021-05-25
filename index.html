@@ -16,7 +16,7 @@
 
     <meta name="theme-color" content="#fafafa">
     <link href="style.css" rel="stylesheet">
-    <script async src="./dist/bundle.js"></script>
+    <script src="./dist/bundle.js"></script>
 </head>
 
 <body class="bg-gray-200">
@@ -29,10 +29,11 @@
                 <div class="text-center">
                     <label class="text-gray-700 py-7 font-bold">your query here:</label>
                     <code>
-                        <input type='text' placeholder="select country_code, long_name from wdi_country limit 3;"
+                        <input type='text' id="querytext" placeholder="select country_code, long_name from wdi_country limit 3;"
                         class="w-full mt-2 mb-6 px-6 py-3 border rounded-lg text-lg text-gray-700 focus:outline-none" />
                     </code>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    <button id="runquery" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        onclick="load(document.getElementById('querytext').value)">
                         Run query
                     </button>
                     <p id="result" class="text-gray-700 py-3 overflow-x-scroll overflow-y-scroll">Loading...</p>

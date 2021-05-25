@@ -41,14 +41,25 @@ eval("module.exports = __webpack_require__.p + \"c356a8c1ca29f8b1b394.js\";\n\n/
 
 /***/ }),
 
-/***/ "./src/index.ts":
+/***/ "./src/query.ts":
 /*!**********************!*\
-  !*** ./src/index.ts ***!
+  !*** ./src/query.ts ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var sql_js_httpvfs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sql.js-httpvfs */ \"./node_modules/sql.js-httpvfs/dist/index.js\");\n/* harmony import */ var sql_js_httpvfs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sql_js_httpvfs__WEBPACK_IMPORTED_MODULE_0__);\n\nconst workerUrl = new URL(/* asset import */ __webpack_require__(/*! sql.js-httpvfs/dist/sqlite.worker.js */ \"./node_modules/sql.js-httpvfs/dist/sqlite.worker.js\"), __webpack_require__.b);\nconst wasmUrl = new URL(/* asset import */ __webpack_require__(/*! sql.js-httpvfs/dist/sql-wasm.wasm */ \"./node_modules/sql.js-httpvfs/dist/sql-wasm.wasm\"), __webpack_require__.b);\nconst dbDir = \"https://trickster.github.io/world-sqlite3/split-db\";\nasync function load(query) {\n    const worker = await (0,sql_js_httpvfs__WEBPACK_IMPORTED_MODULE_0__.createDbWorker)([\n        {\n            from: \"jsonconfig\",\n            virtualFilename: \"wdi.sqlite3\",\n            configUrl: dbDir + \"/config.json\",\n        },\n        {\n            from: \"inline\",\n            virtualFilename: \"dbstat.sqlite3\",\n            config: {\n                serverMode: \"full\",\n                requestChunkSize: 4096,\n                url: dbDir + \"/dbstat.sqlite3\",\n            },\n        },\n    ], workerUrl.toString(), wasmUrl.toString());\n    // const result = await worker.db.query(`select * from names`);\n    const result = await worker.db.query(query);\n    let resultDom = document.querySelector(\"#result\");\n    if (resultDom) {\n        resultDom.textContent = JSON.stringify(result);\n    }\n}\n// module.exports.load = load();\nload(`select country_code, long_name from wdi_country limit 3;`);\n\n\n//# sourceURL=webpack:///./src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ load)\n/* harmony export */ });\n/* harmony import */ var sql_js_httpvfs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sql.js-httpvfs */ \"./node_modules/sql.js-httpvfs/dist/index.js\");\n/* harmony import */ var sql_js_httpvfs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sql_js_httpvfs__WEBPACK_IMPORTED_MODULE_0__);\n\nconst workerUrl = new URL(/* asset import */ __webpack_require__(/*! sql.js-httpvfs/dist/sqlite.worker.js */ \"./node_modules/sql.js-httpvfs/dist/sqlite.worker.js\"), __webpack_require__.b);\nconst wasmUrl = new URL(/* asset import */ __webpack_require__(/*! sql.js-httpvfs/dist/sql-wasm.wasm */ \"./node_modules/sql.js-httpvfs/dist/sql-wasm.wasm\"), __webpack_require__.b);\nconst dbDir = \"https://trickster.github.io/world-sqlite3/split-db\";\nasync function load(query) {\n    const worker = await (0,sql_js_httpvfs__WEBPACK_IMPORTED_MODULE_0__.createDbWorker)([\n        {\n            from: \"jsonconfig\",\n            virtualFilename: \"wdi.sqlite3\",\n            configUrl: dbDir + \"/config.json\",\n        },\n        {\n            from: \"inline\",\n            virtualFilename: \"dbstat.sqlite3\",\n            config: {\n                serverMode: \"full\",\n                requestChunkSize: 4096,\n                url: dbDir + \"/dbstat.sqlite3\",\n            },\n        },\n    ], workerUrl.toString(), wasmUrl.toString());\n    // const result = await worker.db.query(`select * from names`);\n    const result = await worker.db.query(query);\n    let resultDom = document.querySelector(\"#result\");\n    if (resultDom) {\n        resultDom.textContent = JSON.stringify(result);\n    }\n}\n\n\n//# sourceURL=webpack:///./src/query.ts?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./query */ \"./src/query.ts\");\n\nwindow.load = _query__WEBPACK_IMPORTED_MODULE_0__.default;\n\n(0,_query__WEBPACK_IMPORTED_MODULE_0__.default)(`select country_code, long_name from wdi_country limit 3;`);\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
@@ -185,7 +196,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var sql_
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.ts");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
 ;
