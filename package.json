@@ -7,6 +7,10 @@
     "webpack-cli": "^4.7.0"
   },
   "dependencies": {
-    "sql.js-httpvfs": "^0.8.9"
+    "sql.js-httpvfs": "^0.8.9",
+    "tailwindcss": "^2.1.2"
+  },
+  "scripts": {
+    "build:css": "tailwind build src/style.css -o style.css"
   }
 }
