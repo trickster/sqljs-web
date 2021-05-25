@@ -35,6 +35,6 @@ export default async function load(query: string) {
 
     let resultDom = document.querySelector("#result");
     if (resultDom) {
-        resultDom.textContent = JSON.stringify(result);
+        resultDom.textContent = JSON.stringify(result, null, 4);
     }
 }
